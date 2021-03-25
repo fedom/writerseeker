@@ -12,6 +12,10 @@ type WriterSeeker struct {
 	pos int
 }
 
+func (ws *WriterSeeker) Bytes() ([]byte) {
+    return ws.buf.Bytes()
+}
+
 // Write writes to the buffer of this WriterSeeker instance
 func (ws *WriterSeeker) Write(p []byte) (n int, err error) {
 	// If the offset is past the end of the buffer, grow the buffer with null bytes.
